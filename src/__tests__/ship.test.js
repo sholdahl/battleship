@@ -1,7 +1,7 @@
-import ship from "./ship";
+import ship from "../ship";
 
 test("return an object", () => {
-  expect(ship("Battle Ship", 3)).toMatchObject({ name: "Battle Ship", length: 3, hits: [] });
+  expect(ship("Battle Ship", 3, ["1A", "1B", "1C"])).toMatchObject({ name: "Battle Ship", length: 3, hits: [], position: ["1A", "1B", "1C"] });
 });
 
 test("hit function works", () => {

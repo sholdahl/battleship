@@ -1,4 +1,4 @@
-const ship = (name, length) => {
+const ship = (name, length, position) => {
   length = parseInt(length);
   let hits = [];
   const hit = (position) => {
@@ -9,7 +9,7 @@ const ship = (name, length) => {
     return length === hits.length ? true : false;
   };
 
-  return { name, length, hits, hit, isSunk };
+  return { name, length, hits, position, hit, isSunk };
 };
 
 export default ship;
