@@ -11,13 +11,13 @@ body {
 /* Board styling */
 .board-wrapper {
   display: grid;
-  grid-template: repeat(8, 1fr [col-start]) / repeat(9, 1fr [col-start]);
+  grid-template: repeat(11, 1fr [col-start]) / repeat(11, 1fr [col-start]);
   justify-items: center;
   align-items: center;
   justify-content: stretch;
   align-content: stretch;
   gap: 2px;
-  height: 400px;
+  height: 500px;    
 }
 
 .grid-item {
@@ -31,7 +31,7 @@ body {
 }
 
 .ship {
-    background: tomato;
+  background: tomato;
 }
 
 .coord-label {
@@ -66,5 +66,14 @@ body {
   grid-area: 8/1/9/2;
 }
 
+.h {
+  grid-area: 9/1/10/2;
+}
 
+.i {
+  grid-area: 10/1/11/2;
+}
 
+.j {
+  grid-area: 11/1/12/2;
+}
