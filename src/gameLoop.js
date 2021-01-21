@@ -14,7 +14,7 @@ const gameLoop = (computerAI) => {
   let { human, computer } = setUpGame("Player");
 
   const placeShips = (playerObj) => {
-    playerObj.board.placeShip("Carrier", 5, ["B2", "B3", "B4", "B5", "B6"]);
+    playerObj.board.placeShip("Carrier", 5, ["C2", "C3", "C4", "C5", "C6"]);
     playerObj.board.placeShip("Battleship", 4, ["F5", "G5", "H5", "I5"]);
     playerObj.board.placeShip("Cruiser", 3, ["A2", "A3", "A4"]);
     playerObj.board.placeShip("Submarine", 3, ["D9", "E9", "F9"]);

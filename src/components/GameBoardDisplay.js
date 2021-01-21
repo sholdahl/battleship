@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PlayerBoard from "./PlayerBoard";
-import ComputerBoard from "./ComputerBoard";
-
+import gameLoop from "../gameLoop";
+import computerAI from "../computerAI";
 
 const GameBoardDisplay = () => {
-    return (
-        <div className="row game-board">
-            <PlayerBoard/>
-            <ComputerBoard/>
-        </div>
-    )
-}
+  const [game, setGame] = useState(gameLoop(computerAI));
+
+//   useEffect(() => {
+//       let newGame = game.
+//     setGame(gameLoop(computerAI));
+//   }, []);
+
+  return (
+    <div className="row game-board">
+      <PlayerBoard player="Player" game={game}/>
+      <PlayerBoard player="Computer" game={game}/>
+    </div>
+  );
+};
 
 export default GameBoardDisplay;
