@@ -30,9 +30,11 @@ const computerAI = {
       ) {
         coordValid = true;
         computer.attack(coords, player);
+        computerAI.lastAttack = coords
       }
     }
   },
+  lastAttack: null
 };
 
 export default computerAI;

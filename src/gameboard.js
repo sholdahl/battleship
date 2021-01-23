@@ -3,6 +3,7 @@ import ship from "./ship";
 const gameboard = () => {
   let missedAttacks = [];
   let ships = [];
+  let attacksReceived = [];
 
   const shipsSunk = () => {
     for (let i = 0; i < ships.length; i++) {
@@ -18,6 +19,8 @@ const gameboard = () => {
   };
 
   const receiveAttack = (coordinates) => {
+    attacksReceived.push(coordinates)
+
     for (let i = 0; i < ships.length; i++) {
       let coordIndex = ships[i].position.findIndex(
         (shipCoordinate) => shipCoordinate === coordinates
@@ -30,14 +33,7 @@ const gameboard = () => {
     missedAttacks.push(coordinates);
   };
 
-  return { missedAttacks, ships, receiveAttack, shipsSunk, placeShip };
+  return { missedAttacks, ships, receiveAttack, attacksReceived, shipsSunk, placeShip };
 };
 
 export default gameboard;
-
-// board is 1 - 8, A - G
-// carrier - 5
-// battleship - 4
-//  cruiser - 3
-// submarine - 3
-// detroyer - 2

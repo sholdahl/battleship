@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import BoardCell from "./BoardCell";
 
 const Board = (props) => {
-
-    const {coords} = props;
-
-  const handleClick = e => {
-      console.log("Clicked!")
-  }
+  const { coords, player, game, updateBoards } = props;
 
   return (
     <div className="board-wrapper">
@@ -23,7 +18,6 @@ const Board = (props) => {
       <BoardCell text="9" cellClass="P9 coord-label" />
       <BoardCell text="10" cellClass="P10 coord-label" />
 
-
       <BoardCell text="A" cellClass="a coord-label" />
       <BoardCell text="B" cellClass="b coord-label" />
       <BoardCell text="C" cellClass="c coord-label" />
@@ -35,16 +29,18 @@ const Board = (props) => {
       <BoardCell text="I" cellClass="i coord-label" />
       <BoardCell text="J" cellClass="j coord-label" />
 
-
       {coords.map((coordInfo, index) => {
         return (
           <BoardCell
             text=""
-            cellClass={coordInfo.ship ? "ship": ""}
+            cellClass={coordInfo.ship ? "ship" : ""}
             coord={coordInfo.coord}
+            hit={coordInfo.hit}
             ship={coordInfo.ship}
-            handleClick={handleClick}
+            player={player}
+            game={game}
             key={coordInfo.coord}
+            updateBoards={updateBoards}
           />
         );
       })}

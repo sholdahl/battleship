@@ -4,7 +4,6 @@ const gameLoop = (computerAI) => {
   let winner = null;
   let completed = false;
 
-
   const setUpGame = (playerName) => {
     let human = player(playerName);
     let computer = player("Computer");
@@ -23,28 +22,31 @@ const gameLoop = (computerAI) => {
 
   placeShips(human);
   placeShips(computer);
-  
 
   let playerAttack = (coords) => {
-    human.attack(coords, computer);
+    obj.human.attack(coords, obj.computer);
   };
 
   let playRound = (coords) => {
-    playerAttack(coords);
-    if(computer.board.shipsSunk() === true) {
-        completed = true;
-        winner = human.name
-        return
+    console.log("Player attacked: " + coords);
+    console.log(this)
+    console.log(obj)
+    playerAttack(coords); 
+
+    if (obj.computer.board.shipsSunk() === true) {
+      obj.completed = true;
+      obj.winner = obj.human.name;
+      return;
     }
     computerAI.attack(computer, human);
-    if(human.board.shipsSunk() === true) {
-        completed = true;
-        winner = computer.name
+    if (obj.human.board.shipsSunk() === true) {
+      obj.completed = true;
+      obj.winner = obj.computer.name;
     }
-
   };
 
-  return { human, computer, playRound,completed, winner };
+  let obj = { human, computer, playRound, completed, winner, computerAI };
+  return obj
 };
 
 export default gameLoop;
