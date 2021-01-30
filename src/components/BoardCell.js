@@ -1,7 +1,7 @@
 import React from "react";
 
 const BoardCell = (props) => {
-  const { text, cellClass, coord, hit, game, player, updateBoards } = props;
+  const { text, cellClass, coord, hit, game, player, updateBoards, ship } = props;
 
   let containerClasses = cellClass + " grid-item";
   if (player === "Computer" && hit === false && game.winner === null) {
@@ -18,7 +18,7 @@ const BoardCell = (props) => {
   };
 
   return (
-    <div className={containerClasses} onClick={handleClick} data-coord={coord} data-hit={hit}>
+    <div draggable={ship && !hit ?  "true": "auto"} className={containerClasses} onClick={handleClick} data-coord={coord} data-hit={hit}>
       <span className="inner-grid-item">{text}</span>
     </div>
   );
